@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+
+
+    <h1><strong>Development of an Optimized Pathfinding Algorithm for Video Games</strong></h1>
+<h2>Abstract</h2>
+<p>Pathfinding algorithms play a pivotal role in video games, enabling non-player characters (NPCs) to navigate environments efficiently. This research explores the development of an optimized pathfinding algorithm, combining traditional methods like Dijkstra's and A* with practical enhancements to improve performance in dynamic game environments. The proposed algorithm provides real-time obstacle detection, visual feedback, and adaptability for complex terrains.</p>
+<hr />
+<h2><strong>1. Introduction</strong></h2>
+<p>Pathfinding is essential in video game design, directly impacting gameplay quality, immersion, and NPC behavior. Traditional algorithms, such as Dijkstra's and A*, are reliable but often struggle in dynamic or dense environments due to computational overheads.</p>
+<p>This research aims to bridge the gap by proposing an optimized pathfinding algorithm tailored for video games. Key features include real-time obstacle handling, visualization of algorithm steps, and support for maze and terrain generation. The algorithm's adaptability makes it ideal for grid-based maps and dynamic obstacle scenarios.</p>
+<hr />
+<h2><strong>2. Literature Review</strong></h2>
+<p>Pathfinding algorithms have been extensively studied in computer science. This section reviews the foundational algorithms and their applications:</p>
+<ul>
+<li><strong>Dijkstra&rsquo;s Algorithm</strong>: Renowned for finding the shortest path in weighted graphs, though computationally intensive.</li>
+<li><em><em>A</em> Algorithm</em>*: Combines Dijkstra&rsquo;s efficiency with heuristic guidance, making it suitable for real-time pathfinding.</li>
+<li><strong>Breadth-First Search (BFS)</strong>: Efficient for unweighted graphs, exploring paths layer-by-layer.</li>
+<li><strong>Depth-First Search (DFS)</strong>: Suitable for connectivity and cycle detection, though inefficient for shortest-path problems.</li>
+<li><strong>Bidirectional Search</strong>: A fast method that reduces search depth by working from both the start and end nodes.</li>
+</ul>
+<p>Limitations of these methods in dynamic environments have driven the need for enhanced, game-specific optimizations.</p>
+<hr />
+<h2><strong>3. Methodology</strong></h2>
+<h3><strong>3.1 Technical Approach</strong></h3>
+<p>The proposed system integrates and optimizes five algorithms:</p>
+<ol>
+<li><strong>Optimized Dijkstra's Algorithm</strong>: Enhanced with a priority queue for faster path calculations in dense graphs.</li>
+<li><strong>Enhanced A</strong>*: Uses an advanced heuristic to accelerate convergence.</li>
+<li><strong>Bidirectional Search</strong>: Efficiently splits the search space by initiating searches from both ends.</li>
+<li><strong>Breadth-First Search (BFS)</strong>: Explores all possible routes in unweighted graphs.</li>
+<li><strong>Depth-First Search (DFS)</strong>: Suitable for cycle detection and graph connectivity.</li>
+</ol>
+<h3><strong>3.2 Features</strong></h3>
+<ul>
+<li><strong>Real-Time Obstacle Detection</strong>: Automatically adjusts paths when obstacles change.</li>
+<li><strong>Algorithm Visualization</strong>: Step-by-step graphical representation of pathfinding processes.</li>
+<li><strong>Maze and Terrain Generation</strong>: Generates test environments to simulate complex scenarios.</li>
+</ul>
+<h3><strong>3.3 User Interaction</strong></h3>
+<ul>
+<li><strong>Right Click</strong>: Removes start, end, or wall cells and reverts them to normal cells.</li>
+<li><strong>Left Click</strong>: Sets normal cells as wall cells.</li>
+<li><strong>Control Buttons</strong>: Allow users to select an algorithm, clear the grid, or generate random mazes.</li>
+</ul>
+<hr />
+<h2><strong>4. Results and Analysis</strong></h2>
+<p>The proposed algorithm was tested in various scenarios, including static and dynamic obstacle environments. Key evaluation metrics included:</p>
+<ul>
+<li><strong>Computation Time</strong>: Measured time to compute paths in grids of varying sizes.</li>
+<li><strong>Path Accuracy</strong>: Assessed by comparing calculated paths to known optimal routes.</li>
+<li><strong>Resource Usage</strong>: Monitored CPU and memory usage during execution.</li>
+</ul>
+<h3><strong>Performance Comparison</strong></h3>
+<table>
+<thead>
+<tr>
+<th>Algorithm</th>
+<th>Time Complexity</th>
+<th>Space Complexity</th>
+<th>Best Use Case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Optimized Dijkstra's</td>
+<td><span class="katex"><span class="katex-mathml">O((V+E)log⁡V)O((V + E) \log V)</span><span class="katex-html"><span class="base"><span class="mord mathnormal">O</span><span class="mopen">((</span><span class="mord mathnormal">V</span><span class="mbin">+</span></span><span class="base"><span class="mord mathnormal">E</span><span class="mclose">)</span><span class="mop">log</span><span class="mord mathnormal">V</span><span class="mclose">)</span></span></span></span></td>
+<td><span class="katex"><span class="katex-mathml">O(V+E)O(V + E)</span><span class="katex-html"><span class="base"><span class="mord mathnormal">O</span><span class="mopen">(</span><span class="mord mathnormal">V</span><span class="mbin">+</span></span><span class="base"><span class="mord mathnormal">E</span><span class="mclose">)</span></span></span></span></td>
+<td>Weighted shortest paths</td>
+</tr>
+<tr>
+<td>Enhanced A* Search</td>
+<td><span class="katex"><span class="katex-mathml">O((V+E)log⁡V)O((V + E) \log V)</span><span class="katex-html"><span class="base"><span class="mord mathnormal">O</span><span class="mopen">((</span><span class="mord mathnormal">V</span><span class="mbin">+</span></span><span class="base"><span class="mord mathnormal">E</span><span class="mclose">)</span><span class="mop">log</span><span class="mord mathnormal">V</span><span class="mclose">)</span></span></span></span></td>
+<td><span class="katex"><span class="katex-mathml">O(V+E)O(V + E)</span><span class="katex-html"><span class="base"><span class="mord mathnormal">O</span><span class="mopen">(</span><span class="mord mathnormal">V</span><span class="mbin">+</span></span><span class="base"><span class="mord mathnormal">E</span><span class="mclose">)</span></span></span></span></td>
+<td>Heuristic-based navigation</td>
+</tr>
+<tr>
+<td>Bidirectional Search</td>
+<td><span class="katex"><span class="katex-mathml">O(bd/2)O(b^{d/2})</span><span class="katex-html"><span class="base"><span class="mord mathnormal">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">b</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist"><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">d</span><span class="mord mtight">/2</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span></td>
+<td><span class="katex"><span class="katex-mathml">O(bd/2)O(b^{d/2})</span><span class="katex-html"><span class="base"><span class="mord mathnormal">O</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal">b</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist"><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">d</span><span class="mord mtight">/2</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span></td>
+<td>Large undirected graphs</td>
+</tr>
+<tr>
+<td>Breadth-First Search (BFS)</td>
+<td><span class="katex"><span class="katex-mathml">O(V+E)O(V + E)</span><span class="katex-html"><span class="base"><span class="mord mathnormal">O</span><span class="mopen">(</span><span class="mord mathnormal">V</span><span class="mbin">+</span></span><span class="base"><span class="mord mathnormal">E</span><span class="mclose">)</span></span></span></span></td>
+<td><span class="katex"><span class="katex-mathml">O(V)O(V)</span><span class="katex-html"><span class="base"><span class="mord mathnormal">O</span><span class="mopen">(</span><span class="mord mathnormal">V</span><span class="mclose">)</span></span></span></span></td>
+<td>Unweighted shortest paths</td>
+</tr>
+<tr>
+<td>Depth-First Search (DFS)</td>
+<td><span class="katex"><span class="katex-mathml">O(V+E)O(V + E)</span><span class="katex-html"><span class="base"><span class="mord mathnormal">O</span><span class="mopen">(</span><span class="mord mathnormal">V</span><span class="mbin">+</span></span><span class="base"><span class="mord mathnormal">E</span><span class="mclose">)</span></span></span></span></td>
+<td><span class="katex"><span class="katex-mathml">O(V)O(V)</span><span class="katex-html"><span class="base"><span class="mord mathnormal">O</span><span class="mopen">(</span><span class="mord mathnormal">V</span><span class="mclose">)</span></span></span></span></td>
+<td>Connectivity and cycle detection</td>
+</tr>
+</tbody>
+</table>
+<p>The results showed significant improvements in processing time and adaptability compared to traditional implementations.</p>
+<hr />
+<h2><strong>5. Discussion</strong></h2>
+<p>The optimized algorithm demonstrated:</p>
+<ul>
+<li><strong>Efficiency</strong>: Reduced computational load through improved heuristics and dynamic adjustments.</li>
+<li><strong>Adaptability</strong>: Seamlessly handled changes in game environments, such as dynamic obstacles.</li>
+<li><strong>Scalability</strong>: Performed consistently across different grid sizes and densities.</li>
+</ul>
+<p>However, limitations were noted in environments with extremely high obstacle densities, which could benefit from hybrid AI-enhanced approaches.</p>
+<hr />
+<h2><strong>6. Conclusion</strong></h2>
+<p>This research presents an optimized pathfinding algorithm designed for the complexities of video game environments. By enhancing traditional algorithms with dynamic adaptability and visualization capabilities, it achieves superior performance in real-time scenarios. Future work will focus on integrating AI-driven predictive heuristics to further improve efficiency.</p>
+<hr />
+<h2><strong>References</strong></h2>
+<ul>
+<li>Hart, P., Nilsson, N., &amp; Raphael, B. (1968). <em>A Formal Basis for the Heuristic Determination of Minimum Cost Paths</em>.</li>
+<li>Dijkstra, E. W. (1959). <em>A Note on Two Problems in Connexion with Graphs</em>.</li>
+<li>Russell, S., &amp; Norvig, P. (2020). <em>Artificial Intelligence: A Modern Approach</em>.</li>
+</ul>
+<hr />
+
+
+<script>
+    async function generatePDF() {
+        // Target the content to capture
+        const content = document.body;
+
+        // Use html2canvas to capture the content as an image
+        const canvas = await html2canvas(content, { scale: 2 });
+        const imgData = canvas.toDataURL('image/png');
+
+        // Create a new jsPDF instance
+        const { jsPDF } = window.jspdf;
+        const pdf = new jsPDF('p', 'mm', 'a4');
+
+        // Calculate image dimensions for A4 page
+        const imgWidth = 210; // A4 width in mm
+        const imgHeight = (canvas.height * imgWidth) / canvas.width;
+
+        // Add the image to the PDF
+        pdf.addImage(imgData, 'PNG', 0, 0, imgWidth, imgHeight);
+
+        // Save the PDF with the desired filename
+        pdf.save('samyakkamble6659.pdf');
+    }
+
+    // Attach event listener to the button
+    document.getElementById('downloadPdf').addEventListener('click', generatePDF);
+</script>
+</body>
+
+<button id="downloadPdf" style="margin-top: 20px; padding: 10px 20px; background-color: #007acc; color: white; border: none; border-radius: 5px; cursor: pointer;">
+    Download PDF
+</button>
+
+<footer>
+    <p>
+        View this project on 
+        <a href="https://github.com/samyak2403/Development-of--an-Optimized-path-finding-algorithm-for-video-game" target="_blank">
+            samyak2403
+        </a>
+    </p>
+</footer>
+</html>
